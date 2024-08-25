@@ -1,0 +1,26 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+    tty: true
+    volumes:
+      - ./frontend:/app
+    environment:
+      - WATCHPACK_POLLING=true
+    # コンテナ立ち上げの際に実行するコマンド（ローカルサーバー起動）
+    # command: sh -c "npm run dev"
+    ports:
+      - "3000:3000"
+
+  backend:
+    build:
+      context: ./backend
+    tty: true
+    volumes:
+      - ./backend:/app
+    environment:
+      - WATCHPACK_POLLING=true
+    # コンテナ立ち上げの際に実行するコマンド（ローカルサーバー起動）
+    # command: sh -c "npm run dev"
+    ports:
+      - "4000:4000"
