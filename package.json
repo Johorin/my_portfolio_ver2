@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tsc -p tsconfig.server.json && cross-env NODE_ENV=development node ./dist/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon",
     "build": "tsc -p tsconfig.server.json",
     "nextdev": "next dev",
     "start": "NODE_ENV=production node src/server.js",
