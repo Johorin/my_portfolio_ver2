@@ -8,7 +8,7 @@ services:
     environment:
       - WATCHPACK_POLLING=true
     # コンテナ立ち上げの際に実行するコマンド（ローカルサーバー起動）
-    # command: sh -c "npm run dev"
+    command: sh -c "yarn dev"
     ports:
       - "3000:3000"
 
@@ -21,6 +21,16 @@ services:
     environment:
       - WATCHPACK_POLLING=true
     # コンテナ立ち上げの際に実行するコマンド（ローカルサーバー起動）
-    # command: sh -c "npm run dev"
+    command: sh -c "yarn dev"
     ports:
       - "4000:4000"
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: myportfolio
+      MYSQL_USER: local
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
