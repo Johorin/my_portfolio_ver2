@@ -3,12 +3,13 @@ services:
     build:
       context: ./frontend
     tty: true
+    restart: always
     volumes:
       - ./frontend:/app
     environment:
       - WATCHPACK_POLLING=true
     # コンテナ立ち上げの際に実行するコマンド（ローカルサーバー起動）
-    command: sh -c "yarn dev"
+    command: sh -c "yarn install && yarn dev"
     ports:
       - "3000:3000"
 
@@ -16,12 +17,13 @@ services:
     build:
       context: ./backend
     tty: true
+    restart: always
     volumes:
       - ./backend:/app
     environment:
       - WATCHPACK_POLLING=true
     # コンテナ立ち上げの際に実行するコマンド（ローカルサーバー起動）
-    command: sh -c "yarn dev"
+    command: sh -c "yarn install && yarn dev"
     ports:
       - "4000:4000"
 
