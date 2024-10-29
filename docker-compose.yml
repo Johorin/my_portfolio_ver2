@@ -1,7 +1,9 @@
 services:
   frontend:
+    container_name: frontend
     build:
-      context: ./frontend
+      context: '.'
+      dockerfile: './frontend/Dockerfile'
     tty: true
     restart: always
     volumes:
@@ -16,8 +18,10 @@ services:
       - myportfolio
 
   backend:
+    container_name: backend
     build:
-      context: ./backend
+      context: '.'
+      dockerfile: './backend/Dockerfile'
     tty: true
     restart: always
     volumes:
@@ -27,7 +31,22 @@ services:
     command: sh -c "npm install && npm run dev"
     ports:
       - "4000:4000"
-      - "5555:5555" # prisma port
+    networks:
+      - myportfolio
+
+  prisma-studio:
+    container_name: prisma-studio
+    build:
+      context: ./backend
+    tty: true
+    restart: always
+    volumes:
+      - ./backend:/app
+    environment:
+      - WATCHPACK_POLLING=true
+    command: sh -c "npm install && npx prisma studio"
+    ports:
+      - "5555:5555"
     networks:
       - myportfolio
 
