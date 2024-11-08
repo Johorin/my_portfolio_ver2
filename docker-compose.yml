@@ -28,7 +28,7 @@ services:
       - ./backend:/app
     environment:
       - WATCHPACK_POLLING=true
-    command: sh -c "npm install && npm run dev"
+    command: sh -c "npm install && npm run dev && npx prisma generate"  # 最後のはPrismaクライアントを生成
     ports:
       - "4000:4000"
     networks:
