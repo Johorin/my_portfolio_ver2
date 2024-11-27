@@ -18,6 +18,14 @@
 2. `npm run seed`を実行する（backend/seedersフォルダ配下が実行されます）
 [参考](https://www.prisma.io/docs/getting-started/quickstart-prismaPostgres#5-execute-queries-with-prisma-orm)
 
-## 開発開始前タスク管理
-Googleスプレッドシートを使用
+## Document and so on
+### 新タスク管理（CLICK UP）
+https://app.clickup.com/9018648407/v/b/li/901804124689
+
+### 旧タスク管理（Googleスプレッドシート）
 https://docs.google.com/spreadsheets/d/1Fs8gfkPfVuT8u6VavqJANCH20cJlayUuWMLGQ6ndW88/edit?gid=1386834576#gid=1386834576
+
+サイトを開いたとき最初はトップビューのみ拡大して表示し、数秒後にヘッダーと下のメインコンテンツを引き寄せる感じにしたい
+
+### デザイン作成
+https://www.figma.com/design/NpvTNeIwv2e3IRIZQ7fmIr/MyPortfolio_design?node-id=0-1&node-type=canvas&t=BTAroNntjWfpztyN-0

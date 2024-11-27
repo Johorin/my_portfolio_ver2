@@ -5,7 +5,6 @@ services:
       context: '.'
       dockerfile: './frontend/Dockerfile'
     tty: true
-    restart: always
     volumes:
       - ./frontend:/app
     environment:
@@ -23,7 +22,6 @@ services:
       context: '.'
       dockerfile: './backend/Dockerfile'
     tty: true
-    restart: always
     volumes:
       - ./backend:/app
     environment:
@@ -39,7 +37,6 @@ services:
     build:
       context: ./backend
     tty: true
-    restart: always
     volumes:
       - ./backend:/app
     environment:
