@@ -4,7 +4,7 @@ const TopThumbnailBlock = () => {
 		<div className="
 			top-thumbnail-block
 			bg-black
-			h-screen
+			h-[calc(100vh-64px)]
 			mt-[64px]
 			flex flex-col items-center justify-center
 		">
