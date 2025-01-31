@@ -1,9 +1,9 @@
-// import Image from "next/image";
+import TopThumbnailBlock from "@/components/server/user/top/TopThumbnailBlock"
 
 export default function Home() {
   return (
     <>
-      <div>test</div>
+      <TopThumbnailBlock />
     </>
   );
 }
