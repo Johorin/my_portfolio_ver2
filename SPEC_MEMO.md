@@ -1,4 +1,27 @@
 - Top Thumbnailビューに自分の写真をフェードインフェードアウトでスライドショーさせたい
-┗スライドショーさせる写真は管理画面から設定する
+  - スライドショーさせる写真は管理画面から設定する
 
 - 画像の取り扱いはAWS S3＆CloudFrontを使いたい
+
+- backendはクリーンアーキテクチャで構成する
+  - Domain/
+    - Entity
+    - ValueObject
+    - Factory
+      - Entityを生成する
+      - ReconstructHelperも
+        - 古いEntityを元にデータを更新した新しいEntityを再構成する
+    - Service
+    - RepositoryInterface
+    - Model
+  - Application/
+    - UseCase
+    - DTO
+      - Entity->Arrayに変換
+    - QueryService
+  - Presentation/
+    - Controller
+    - Request
+    - View
+  - Infrastructure/
+    - Repository
