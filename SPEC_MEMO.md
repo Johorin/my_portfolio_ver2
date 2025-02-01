@@ -11,17 +11,30 @@
       - Entityを生成する
       - ReconstructHelperも
         - 古いEntityを元にデータを更新した新しいEntityを再構成する
-    - Service
+    - DomainService
+      - Entity自身で表現できないドメインルールを表現する
     - RepositoryInterface
-    - Model
   - Application/
     - UseCase
-    - DTO
+    - DataTransferObject(DTO)
       - Entity->Arrayに変換
     - QueryService
+      - DBに対して読み取り専用でDTO用データを取得する
   - Presentation/
     - Controller
     - Request
     - View
   - Infrastructure/
+    - (Kernel)
     - Repository
+      - Entityの取得更新
+
+- 各層の依存関係
+
+Domain
+↑	↑
+↑	Application
+↑	↑
+↑	Presentation
+↑	↑
+Infrastructure
