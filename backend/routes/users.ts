@@ -1,6 +1,6 @@
 import express from 'express';
-import { test } from '../src/Presentation/Controller/userController';
+import UserController from '@/Presentation/Controller/userController';
 
 export const usersRouter = express.Router();
 
-usersRouter.get('/test', test);
+usersRouter.get('/test', UserController.test);
