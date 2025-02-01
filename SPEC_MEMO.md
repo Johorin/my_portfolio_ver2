@@ -23,7 +23,6 @@
   - Presentation/
     - Controller
     - Request
-    - View
   - Infrastructure/
     - (Kernel)
     - Repository
