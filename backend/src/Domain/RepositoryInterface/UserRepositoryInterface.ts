@@ -1,7 +1,7 @@
-import TestType from "@/types/TestType";
+import UserEntity from '@/Domain/Entity/UserEntity';
 
 interface UserRepositoryInterface {
-	getAllUsersForTest: () => Promise<TestType[] | null>;
+	getAllUsers: () => Promise<UserEntity[]>;
 }
 
 export default UserRepositoryInterface

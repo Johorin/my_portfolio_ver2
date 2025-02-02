@@ -1,28 +1,23 @@
-import { PrismaClient } from "@prisma/client";
 import { RequestHandler } from 'express';
 import { Request, Response } from 'express';
-import TestType from "@/types/TestType";
-import { inject } from "inversify";
-import { TYPES } from "@/types/RepositoryInterface/types";
-import UserRepositoryInterface from "@/Domain/RepositoryInterface/UserRepositoryInterface";
-
-const prisma = new PrismaClient();
+import GetUserUseCase from '@/Application/UseCase/GetUserUseCase';
+import UserProperty from '@/types/EntityProperty/UserProperty';
 
 export default class UserController {
-    private _userRepository: UserRepositoryInterface;
+	private _getUserUseCase: GetUserUseCase;
 
-    constructor(
-        @inject(TYPES.UserRepositoryInterface) userRepository: UserRepositoryInterface
-    ) {
-        this._userRepository = userRepository;
-    }
+	constructor(
+		getUserUseCase: GetUserUseCase
+	) {
+		this._getUserUseCase = getUserUseCase;
+	}
 
-    public test: RequestHandler = async (req: Request, res: Response) => {
-        try {
-            const users: TestType[] | null = await this._userRepository.getAllUsersForTest();
-            res.json(users);
-        } catch (error) {
-            res.status(500).json({ error: 'An error occurred' });
-        }
-    };
+	public test: RequestHandler = async (req: Request, res: Response) => {
+		try {
+			const users: UserProperty[] | undefined = await this._getUserUseCase.execute();
+			res.status(200).json(users);
+		} catch (error) {
+			res.status(500).json({ error: 'An error occurred' });
+		}
+	};
 }
