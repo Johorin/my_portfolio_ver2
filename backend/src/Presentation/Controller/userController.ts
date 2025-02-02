@@ -10,14 +10,14 @@ class UserController {
         // 
     }
 
-    public async test(req: Request, res: Response): RequestHandler {
+    public test: RequestHandler = async (req: Request, res: Response) => {
         try {
             const users: TestType[] = await prisma.user.findMany();
             res.json(users);
         } catch (error) {
             res.status(500).json({ error: 'An error occurred' });
         }
-    }
+    };
 }
 
 export default new UserController()
