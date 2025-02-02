@@ -1,8 +1,10 @@
 import prisma from "@/lib/prisma";
 import TestType from "@/types/TestType";
 import UserRepositoryInterface from "@/Domain/RepositoryInterface/UserRepositoryInterface";
+import { injectable } from "inversify";
 
-class UserRepository implements UserRepositoryInterface {
+@injectable()
+export default class UserRepository implements UserRepositoryInterface {
 	constructor() {
 		// 
 	}
@@ -11,5 +13,3 @@ class UserRepository implements UserRepositoryInterface {
 		return await prisma.user.findMany();
 	};
 }
-
-export default new UserRepository()
